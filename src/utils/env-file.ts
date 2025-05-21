@@ -22,6 +22,9 @@ DATA_BASE_URL="${process.env.DATA_BASE_URL}"
 CONFIG_SERVICE_URL="${process.env.CONFIG_SERVICE_URL}"
 SERVICE_NAME="${process.env.SERVICE_NAME}"
 TRACE_URL="${process.env.TRACE_URL}"
+API_SERVICE_KEY="${process.env.API_SERVICE_KEY}"
+
+
 `;
 	writeFileSync(path.resolve(__dirname, "../../generated/.env"), env);
 };

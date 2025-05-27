@@ -14,6 +14,7 @@ import fs from "fs";
 dotenv.config();
 
 export const createApiServiceLayer = async () => {
+	console.log("Creating API Service Layer...");
 	const buildString = readFileSync(
 		path.resolve(__dirname, "../src/config/build.yaml"),
 		"utf8"

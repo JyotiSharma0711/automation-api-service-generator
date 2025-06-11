@@ -33,6 +33,7 @@
 		"lodash": "^4.17.21",
 		"ondc-automation-cache-lib": "^2.1.0",
 		"ondc-code-generator": "^0.2.9",
-		"ondc-crypto-sdk-nodejs": "^2.1.1"
+		"ondc-crypto-sdk-nodejs": "^2.1.1",
+		"winston-loki": "^6.1.3"
 	}
 }

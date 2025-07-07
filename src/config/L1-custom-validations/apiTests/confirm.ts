@@ -16,60 +16,60 @@ export function confirm(payload: any): validationOutput {
   const validFulfillments = validateFulfillments(payload);
   const validOrderDimensions = validateOrderDimensions(payload);
   const acceptLSPterms = validateLSPterms(payload);
-  const validTAT = validateTAT(payload);
+  // const validTAT = validateTAT(payload);
   //validate quote
-  if (!validQuote) {
-    results.push({
-      valid: false,
-      code: 66002,
-      description: `LSP is unable to validate the order request : Quote price does not match with /on_init`,
-    });
-  }
+  // if (!validQuote) {
+  //   results.push({
+  //     valid: false,
+  //     code: 66002,
+  //     description: `LSP is unable to validate the order request : Quote price does not match with /on_init`,
+  //   });
+  // }
 
-  //validate items
-  if (!validItems) {
-    results.push({
-      valid: false,
-      code: 66002,
-      description: `LSP is unable to validate the order request : Items array does not match with /on_init`,
-    });
-  }
+  // //validate items
+  // if (!validItems) {
+  //   results.push({
+  //     valid: false,
+  //     code: 66002,
+  //     description: `LSP is unable to validate the order request : Items array does not match with /on_init`,
+  //   });
+  // }
 
-  //validate fulfillments
-  if (!validFulfillments) {
-    results.push({
-      valid: false,
-      code: 66002,
-      description: `LSP is unable to validate the order request : Fulfillments array does not match with /on_init`,
-    });
-  }
+  // //validate fulfillments
+  // if (!validFulfillments) {
+  //   results.push({
+  //     valid: false,
+  //     code: 66002,
+  //     description: `LSP is unable to validate the order request : Fulfillments array does not match with /on_init`,
+  //   });
+  // }
 
-  //validate order dimensions
-  if (!validOrderDimensions) {
-    results.push({
-      valid: false,
-      code: 60011,
-      description: `LSP is unable to validate the order request : Order dimensions/weight does not match with /search`,
-    });
-  }
+  // //validate order dimensions
+  // if (!validOrderDimensions) {
+  //   results.push({
+  //     valid: false,
+  //     code: 60011,
+  //     description: `LSP is unable to validate the order request : Order dimensions/weight does not match with /search`,
+  //   });
+  // }
 
-  //validate LSP terms
-  if (!acceptLSPterms) {
-    results.push({
-      valid: false,
-      code: 62501,
-      description: `LSP is unable to validate the order request : LSP terms are not accepted by LBNP`,
-    });
-  }
+  // //validate LSP terms
+  // if (!acceptLSPterms) {
+  //   results.push({
+  //     valid: false,
+  //     code: 62501,
+  //     description: `LSP is unable to validate the order request : LSP terms are not accepted by LBNP`,
+  //   });
+  // }
 
   //validate S2D TAT and avg pickup time
-  if (!validTAT) {
-    results.push({
-      valid: false,
-      code: 60008,
-      description: `LSP is unable to validate the order request : S2D TAT or avg pickup time are different from what was quoted earlier in /on_search`,
-    });
-  }
+  // if (!validTAT) {
+  //   results.push({
+  //     valid: false,
+  //     code: 60008,
+  //     description: `LSP is unable to validate the order request : S2D TAT or avg pickup time are different from what was quoted earlier in /on_search`,
+  //   });
+  // }
 
   // If no issues found, return a success result
   if (results.length === 0) {

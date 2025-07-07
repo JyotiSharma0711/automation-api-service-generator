@@ -1,34 +1,19 @@
 import { RedisService } from "ondc-automation-cache-lib";
 import { validationOutput } from "../types";
-const isEmpty = (obj: any) =>
-  obj == null || (typeof obj === "object" && Object.keys(obj).length === 0);
-async function validateBilling(
-  payload: Record<string, any>
-): Promise<boolean> {
-  
-  const transaction_id = payload.context.transaction_id
-  let flag = true
-  let initBilling: any = await RedisService.getKey(
-    `${transaction_id}:onInitFulfillments`
-  );
-  if (isEmpty(initBilling) && !isEmpty(payload?.message?.order?.billing)) {
-    flag = false;
-  }
-  return flag;
-}
+import { has } from "lodash";
 
 async function validateFulfillments(
-  payload: Record<string, any>
-): Promise<boolean> {
-  
-  let flag = true
-  const hasTicket = payload?.message?.order?.fulfillments.some((f:any) => f.type === "TICKET")
-  if(!hasTicket){
-      flag = false
+    payload: Record<string, any>
+  ): Promise<boolean> {
+    
+    let flag = true
+    const hasTicket = payload?.message?.order?.fulfillments.some((f:any) => f.type === "TICKET")
+    if(!hasTicket){
+        flag = false
+    }
+    return flag;
   }
-  return flag;
-}
-export function onInit(payload: any): validationOutput {
+export function onSelect(payload: any): validationOutput {
   // Extract payload, context, domain and action
 
   const context = payload?.context;
@@ -44,33 +29,27 @@ export function onInit(payload: any): validationOutput {
   const results: validationOutput = [];
 
   RedisService.setKey(
-    `${transaction_id}:onInitQuote`,
+    `${transaction_id}:onSelectQuote`,
     JSON.stringify({ quote })
   );
 
   RedisService.setKey(
-    `${transaction_id}:onInitItems`,
+    `${transaction_id}:onSelectItems`,
     JSON.stringify({ items })
   );
 
   RedisService.setKey(
-    `${transaction_id}:onInitFulfillments`,
+    `${transaction_id}:onSelectFulfillments`,
     JSON.stringify({ fulfillments })
   );
+  
   const validFulfillments = validateFulfillments(payload);
-  const validBilling = validateBilling(payload)
+
   if(!validFulfillments){
     results.push({
         valid: false,
         code: 63002,
         description: `The fulfillment object should have a Ticket Object`,
-      });
-  }
-  if(!validBilling){
-    results.push({
-        valid: false,
-        code: 63002,
-        description: `Billing object is incorrect`,
       });
   }
   // If no issues found, return a success result

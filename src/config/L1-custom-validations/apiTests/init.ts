@@ -6,8 +6,13 @@ export function init(payload: any): validationOutput {
   const context = payload?.context;
   const domain = context?.domain;
   const action = context?.action;
+  const billing = payload?.message?.order?.billing
+  const transaction_id = context?.transaction_id;
   console.log(`Running validations for ${domain}/${action}`);
-
+  RedisService.setKey(
+    `${transaction_id}:onInitBilling`,
+    JSON.stringify({ billing })
+  );
   // Initialize results array
   const results: validationOutput = [];
 

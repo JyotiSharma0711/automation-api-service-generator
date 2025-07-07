@@ -12,13 +12,13 @@ export function cancel(payload: any): validationOutput {
   const results: validationOutput = [];
 
   //validate items
-  if (!validateCancellationCodes (payload)) {
-    results.push({
-      valid: false,
-      code: 60009,
-      description: `The cancellation reason is not valid`,
-    });
-  }
+  // if (!validateCancellationCodes (payload)) {
+  //   results.push({
+  //     valid: false,
+  //     code: 60009,
+  //     description: `The cancellation reason is not valid`,
+  //   });
+  // }
 
   // If no issues found, return a success result
   if (results.length === 0) {

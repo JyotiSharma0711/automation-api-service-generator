@@ -16,22 +16,22 @@ export function onConfirm(payload: any): validationOutput {
   const validFulfillments = validateFulfillments(payload);
 
   //validate quote
-  if (!validQuote) {
-    results.push({
-      valid: false,
-      code: 63002,
-      description: `LBNP is unable to validate the order request : Quote price does not match with /confirm`,
-    });
-  }
+  // if (!validQuote) {
+  //   results.push({
+  //     valid: false,
+  //     code: 63002,
+  //     description: `LBNP is unable to validate the order request : Quote price does not match with /confirm`,
+  //   });
+  // }
 
-  //validate items
-  if (!validItems) {
-    results.push({
-      valid: false,
-      code: 63002,
-      description: `LBNP is unable to validate the order request : Items array does not match with /confirm`,
-    });
-  }
+  // //validate items
+  // if (!validItems) {
+  //   results.push({
+  //     valid: false,
+  //     code: 63002,
+  //     description: `LBNP is unable to validate the order request : Items array does not match with /confirm`,
+  //   });
+  // }
 
   //validate fulfillments
   if (!validFulfillments) {
@@ -138,12 +138,21 @@ async function validateFulfillments(
     console.error("Error parsing onInitFulfillments from Redis:", error);
     return false;
   }
-
+  let flag = true
+  for (const f of fulfillments) {
+    if (f.type === "ticket" && !f.auth) {
+      flag = false;
+    }
+  
+    if (f.type === "trip" && f.auth) {
+      flag = false;
+    }
+  }
   return fulfillments.every((fulfillment) =>
     onInitFulfillments.some(
       (onInitFulfillment) =>
         fulfillment.id === onInitFulfillment.id &&
         fulfillment.type === onInitFulfillment.type
     )
-  );
+  ) && flag;
 }

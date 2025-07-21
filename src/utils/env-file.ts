@@ -23,8 +23,8 @@ CONFIG_SERVICE_URL="${process.env.CONFIG_SERVICE_URL}"
 SERVICE_NAME="${process.env.SERVICE_NAME}"
 TRACE_URL="${process.env.TRACE_URL}"
 API_SERVICE_KEY="${process.env.API_SERVICE_KEY}"
-
-
+WORKBENCH_SUBSCRIBER_ID="${process.env.WORKBENCH_SUBSCRIBER_ID}"
+IN_HOUSE_REGISTRY="${process.env.IN_HOUSE_REGISTRY}"
 `;
 	writeFileSync(path.resolve(__dirname, "../../generated/.env"), env);
 };

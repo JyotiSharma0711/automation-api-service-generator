@@ -16,7 +16,8 @@
  * - The GitHub Personal Access Token (PAT) needs the `repo` scope.
  */
 
-import axios, { AxiosInstance } from "axios";
+import axios from "axios";
+import type { AxiosInstance } from "axios";
 
 // --- CONFIGURATION ---
 // You can hardcode these values, but using command-line arguments is recommended for flexibility.

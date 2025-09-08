@@ -22,7 +22,9 @@
  * added or changed.
  */
 
-import axios, { AxiosInstance, isAxiosError } from "axios";
+import axios, { isAxiosError } from "axios";
+import type { AxiosInstance } from "axios";
+
 import fs from "fs";
 import path from "path";
 

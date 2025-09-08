@@ -26,6 +26,10 @@ API_SERVICE_KEY="${process.env.API_SERVICE_KEY}"
 WORKBENCH_SUBSCRIBER_ID="${process.env.WORKBENCH_SUBSCRIBER_ID}"
 IN_HOUSE_REGISTRY="${process.env.IN_HOUSE_REGISTRY}"
 LOKI_HOST="${process.env.LOKI_HOST}"
+
+HOSTED_ENV="${process.env.HOSTED_ENV}"
+NO_URL=${process.env.NO_URL}
+NO_TOKEN=${process.env.NO_TOKEN}
 `;
 	writeFileSync(path.resolve(__dirname, "../../generated/.env"), env);
 };

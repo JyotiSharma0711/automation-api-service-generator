@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API SERVICE VALIDATIONS</title>
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="content">
+        <h2>List of validations of api</h2>
+        <ul>
+<li><p><strong>search</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>SEARCH_CONTEXT</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>CONTEXT_REQUIRED</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_CONTEXT_LOCATION_COUNTRY_CODE</strong>: $.context.location.country.code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_LOCATION_CITY_CODE</strong>: $.context.location.city.code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_DOMAIN</strong>: $.context.domain must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TIMESTAMP</strong>: $.context.timestamp must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_ID</strong>: $.context.bap_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_URI</strong>: $.context.bap_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TRANSACTION_ID</strong>: $.context.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_MESSAGE_ID</strong>: $.context.message_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_VERSION</strong>: $.context.version must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TTL</strong>: $.context.ttl must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>CONTEXT_ENUM</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition VALID_CONTEXT_LOCATION_COUNTRY_CODE</strong>: at least one element of $.context.location.country.code must be in [&quot;IND&quot;]</p>
+</li>
+<li><p><strong>condition VALID_CONTEXT_DOMAIN</strong>: every element of $.context.domain must be in [&quot;ONDC:TRV13&quot;]</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>SEARCH_INTENT</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_CATEGORY_CODE</strong>: $.message.intent.category.descriptor.code must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_ENUM_CATEGORY_CODE</strong>: every element of $.message.intent.category.descriptor.code must be in [&quot;HOTEL&quot;]</p>
+</li>
+</ul>
+</li>
+<li><p><strong>SEARCH_INTENT_TAGS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition TAG_GROUPS_REQUIRED</strong>: every element of $.message.intent.tags[*].descriptor.code must be in [&quot;BAP_TERMS&quot;, &quot;BUYER_FINDER_FEES&quot;, &quot;CATALOG_INC&quot;]</p>
+</li>
+<li><p><strong>condition TAG_BAP_TERMS</strong>: every element of $.message.intent.tags[?(@.descriptor.code==&#39;BAP_TERMS&#39;)].list[*].descriptor.code must be in [&quot;STATIC_TERMS&quot;, &quot;STATIC_TERMS_NEW&quot;, &quot;EFFECTIVE_DATE&quot;]</p>
+</li>
+<li><p><strong>condition TAG_BUYER_FINDER_FEES</strong>: every element of $.message.intent.tags[?(@.descriptor.code==&#39;BUYER_FINDER_FEES&#39;)].list[*].descriptor.code must be in [&quot;BUYER_FINDER_FEES_PERCENTAGE&quot;]</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>on_search</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>ON_SEARCH_CONTEXT</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>CONTEXT_REQUIRED</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_CONTEXT_LOCATION_COUNTRY_CODE</strong>: $.context.location.country.code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_LOCATION_CITY_CODE</strong>: $.context.location.city.code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_DOMAIN</strong>: $.context.domain must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TIMESTAMP</strong>: $.context.timestamp must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_ID</strong>: $.context.bap_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_URI</strong>: $.context.bap_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_ID</strong>: $.context.bpp_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_URI</strong>: $.context.bpp_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TRANSACTION_ID</strong>: $.context.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_MESSAGE_ID</strong>: $.context.message_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_VERSION</strong>: $.context.version must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TTL</strong>: $.context.ttl must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>CONTEXT_ENUM</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition VALID_CONTEXT_LOCATION_COUNTRY_CODE</strong>: at least one element of $.context.location.country.code must be in [&quot;IND&quot;]</p>
+</li>
+<li><p><strong>condition VALID_CONTEXT_DOMAIN</strong>: every element of $.context.domain must be in [&quot;ONDC:TRV13&quot;]</p>
+</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_CATALOG_NAME</strong>: $.message.catalog.descriptor.name must be present in the payload</p>
+<blockquote>
+<p>Note: <strong>Condition REQUIRED_CATALOG_NAME</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.catalog.descriptor.name must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition REQUIRED_CATALOG_CODE</strong>: $.message.catalog.descriptor.code must be present in the payload</p>
+<blockquote>
+<p>Note: <strong>Condition REQUIRED_CATALOG_CODE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.catalog.descriptor.code must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><strong>PROVIDERS_REQUIRED</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_PROVIDER_ID</strong>: $.message.catalog.providers[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_PROVIDER_NAME</strong>: $.message.catalog.providers[*].descriptor.name must be present in the payload</p>
+<blockquote>
+<p>Note: <strong>Condition REQUIRED_PROVIDER_NAME</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.catalog.providers[*].descriptor.name must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition REQUIRED_PROVIDER_IMAGES</strong>: all elements of $.message.catalog.providers[<em>].descriptor.images[</em>].url must follow every regex in [&quot;^https://.*&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition REQUIRED_PROVIDER_IMAGES</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.catalog.providers[<em>].descriptor.images[</em>].url must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition REQUIRED_PROVIDER_LOCATIONS</strong>: $.message.catalog.providers[<em>].locations[</em>].id must be present in the payload</p>
+<blockquote>
+<p>Note: <strong>Condition REQUIRED_PROVIDER_LOCATIONS</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.catalog.providers[<em>].locations[</em>].id must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><strong>PROVIDER_PAYMENTS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition VALID_PAYMENT_TYPES</strong>: every element of $.message.catalog.providers[<em>].payments[</em>].type must be in [&quot;PRE-ORDER&quot;, &quot;ON-FULFILLMENT&quot;, &quot;PART-PAYMENT&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition VALID_PAYMENT_TYPES</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.catalog.providers[<em>].payments[</em>].type must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><strong>PROVIDER_ITEMS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_ITEM_ID</strong>: $.message.catalog.providers[<em>].items[</em>].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEM_LABEL</strong>: $.message.catalog.providers[<em>].items[</em>].time.label must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEM_TIMESTAMPS</strong>: $.message.catalog.providers[<em>].items[</em>].time.timestamp must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEM_NAME</strong>: $.message.catalog.providers[<em>].items[</em>].descriptor.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEM_CODE</strong>: $.message.catalog.providers[<em>].items[</em>].descriptor.code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEM_IMAGES</strong>: all elements of $.message.catalog.providers[<em>].items[</em>].descriptor.images[<em>].url must follow every regex in [&quot;^https://.</em>&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition REQUIRED_ITEM_IMAGES</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.catalog.providers[<em>].items[</em>].descriptor.images[*].url must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition REQUIRED_ITEM_PRICE</strong>: $.message.catalog.providers[<em>].items[</em>].price.value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEM_PRICE_CURRENCY</strong>: $.message.catalog.providers[<em>].items[</em>].price.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEM_PRICE_MAX_VALUE</strong>: $.message.catalog.providers[<em>].items[</em>].price.maximum_value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEM_QUANTITY_AVAILABLE</strong>: $.message.catalog.providers[<em>].items[</em>].quantity.available.count must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEM_QUANTITY_MAXIMUM_COUNT</strong>: $.message.catalog.providers[<em>].items[</em>].quantity.maximum.count must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEM_LOCATION_LINK</strong>: $.message.catalog.providers[<em>].items[</em>].location_ids[*] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEM_CATEGORY_LINK</strong>: $.message.catalog.providers[<em>].items[</em>].category_ids[*] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEM_PAYMENT_LINK</strong>: $.message.catalog.providers[<em>].items[</em>].payment_ids[*] must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>ITEM_ADDONS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_ADDON_ID</strong>: $.message.catalog.providers[<em>].items[</em>].add_ons[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ADDON_NAME</strong>: $.message.catalog.providers[<em>].items[</em>].add_ons[*].descriptor.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ADDON_PRICE</strong>: $.message.catalog.providers[<em>].items[</em>].add_ons[*].price.value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ADDON_PRICE_CURRENCY</strong>: $.message.catalog.providers[<em>].items[</em>].add_ons[*].price.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ADDON_PRICE_MAXIMUM_VALUE</strong>: $.message.catalog.providers[<em>].items[</em>].add_ons[*].price.maximum_value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CANCELLATION_TERMS_URL</strong>: all elements of $.message.catalog.providers[<em>].items[</em>].cancellation_terms[<em>].external_ref.url must follow every regex in [&quot;^https://.</em>&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition REQUIRED_CANCELLATION_TERMS_URL</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.catalog.providers[<em>].items[</em>].cancellation_terms[*].external_ref.url must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>select</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>SELECT_CONTEXT</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>REQUIRED_CONTEXT_FIELDS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_CONTEXT_DOMAIN</strong>: $.context.domain must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_COUNTRY</strong>: $.context.location.country.code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CITY</strong>: $.context.location.city.code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TRANSACTION_ID</strong>: $.context.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_MESSAGE_ID</strong>: $.context.message_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_ACTION</strong>: $.context.action must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TIMESTAMP</strong>: $.context.timestamp must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_VERSION</strong>: $.context.version must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_URI</strong>: $.context.bap_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_ID</strong>: $.context.bap_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_URI</strong>: $.context.bpp_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_ID</strong>: $.context.bpp_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TTL</strong>: $.context.ttl must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>CONTEXT_ENUM_VALIDATION</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition VALID_CONTEXT_COUNTRY_CODE</strong>: at least one element of $.context.location.country.code must be in [&quot;IND&quot;]</p>
+</li>
+<li><p><strong>condition VALID_CONTEXT_DOMAIN</strong>: at least one element of $.context.domain must be in [&quot;ONDC:TRV13&quot;]</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>SELECT_ORDER</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_PROVIDER_ID</strong>: $.message.order.provider.id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_PROVIDER_TIME_LABEL</strong>: $.message.order.provider.time.label must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_PROVIDER_TIME_RANGE</strong>: $.message.order.provider.time.range.start must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_PROVIDER_TIME_RANGE_END</strong>: $.message.order.provider.time.range.end must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>SELECT_ORDER_ITEMS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_ITEM_ID</strong>: $.message.order.items[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEM_LOCATION</strong>: $.message.order.items[<em>].location_ids[</em>] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEM_QUANTITY_SELECTED</strong>: $.message.order.items[*].quantity.selected.count must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEM_ADDON_ID</strong>: $.message.order.items[<em>].add_ons[</em>].id must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>SELECT_ORDER_FULFILLMENTS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_FULFILLMENT_TAGS</strong>: $.message.order.fulfillments[<em>].tags[</em>].descriptor.code must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_FULFILLMENT_TAG_GUESTS</strong>: every element of $.message.order.fulfillments[<em>].tags[</em>].descriptor.code must be in [&quot;GUESTS&quot;]</p>
+</li>
+<li><p><strong>condition VALID_FULFILLMENT_SUBTAGS</strong>: every element of $.message.order.fulfillments[<em>].tags[</em>].list[*].descriptor.code must be in [&quot;ADULTS&quot;, &quot;CHILDREN&quot;]</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>on_select</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>ON_SELECT_CONTEXT</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>REQUIRED_CONTEXT_FIELDS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_CONTEXT_DOMAIN</strong>: $.context.domain must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_COUNTRY</strong>: $.context.location.country.code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CITY</strong>: $.context.location.city.code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TRANSACTION_ID</strong>: $.context.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_MESSAGE_ID</strong>: $.context.message_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_ACTION</strong>: $.context.action must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TIMESTAMP</strong>: $.context.timestamp must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_VERSION</strong>: $.context.version must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_URI</strong>: $.context.bap_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_ID</strong>: $.context.bap_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_URI</strong>: $.context.bpp_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_ID</strong>: $.context.bpp_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TTL</strong>: $.context.ttl must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>CONTEXT_ENUM_VALIDATION</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition VALID_CONTEXT_COUNTRY_CODE</strong>: at least one element of $.context.location.country.code must be in [&quot;IND&quot;]</p>
+</li>
+<li><p><strong>condition VALID_CONTEXT_DOMAIN</strong>: at least one element of $.context.domain must be in [&quot;ONDC:TRV13&quot;]</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_SELECT_ORDER</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><strong>condition REQUIRED_PROVIDER_ID</strong>: $.message.order.provider.id must be present in the payload</li>
+</ul>
+</li>
+<li><p><strong>ON_SELECT_ORDER_ITEMS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_ITEM_ID</strong>: $.message.order.items[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEM_ADDS_ON_IDS</strong>: $.message.order.items[<em>].add_ons[</em>].id must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_SELECT_ORDER_QUOTE</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_QUOTE_PRICE</strong>: $.message.order.quote.price.value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_QUOTE_CURRENCY</strong>: $.message.order.quote.price.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_QUOTE_BREAKUP</strong>: $.message.order.quote.breakup[*].price.value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_QUOTE_BREAKUP_PRICE_CURRENCY</strong>: $.message.order.quote.breakup[*].price.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_QUOTE_BREAKUP_TITLE</strong>: $.message.order.quote.breakup[*].title must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_QUOTE_TTL</strong>: $.message.order.quote.ttl must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_SELECT_ORDER_PAYMENTS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_PAYMENT_ID</strong>: $.message.order.payments[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_PAYMENT_TYPE</strong>: $.message.order.payments[*].type must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_PAYMENT_TYPES</strong>: every element of $.message.order.payments[*].type must be in [&quot;PRE-ORDER&quot;, &quot;ON-FULFILLMENT&quot;, &quot;PART-PAYMENT&quot;]</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>init</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>INIT_CONTEXT</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>REQUIRED_CONTEXT_FIELDS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_CONTEXT_DOMAIN</strong>: $.context.domain must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_COUNTRY</strong>: $.context.location.country.code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CITY</strong>: $.context.location.city.code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TRANSACTION_ID</strong>: $.context.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_MESSAGE_ID</strong>: $.context.message_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_ACTION</strong>: $.context.action must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TIMESTAMP</strong>: $.context.timestamp must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_VERSION</strong>: $.context.version must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_URI</strong>: $.context.bap_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_ID</strong>: $.context.bap_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_URI</strong>: $.context.bpp_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_ID</strong>: $.context.bpp_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TTL</strong>: $.context.ttl must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>CONTEXT_ENUM_VALIDATION</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition VALID_CONTEXT_COUNTRY_CODE</strong>: at least one element of $.context.location.country.code must be in [&quot;IND&quot;]</p>
+</li>
+<li><p><strong>condition VALID_CONTEXT_DOMAIN</strong>: at least one element of $.context.domain must be in [&quot;ONDC:TRV13&quot;]</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>INIT_ORDER_PROVIDER</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><strong>condition REQUIRED_PROVIDER_ID</strong>: $.message.order.provider.id must be present in the payload</li>
+</ul>
+</li>
+<li><p><strong>INIT_ORDER_ITEMS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_ITEM_ID</strong>: $.message.order.items[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEM_LOCATION_IDS</strong>: $.message.order.items[<em>].location_ids[</em>] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEM_QUANTITY</strong>: $.message.order.items[*].quantity.selected.count must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ADDS_ON_IDS</strong>: $.message.order.items[<em>].add_ons[</em>].id must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>INIT_ORDER_PAYMENTS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_PAYMENT_ID</strong>: $.message.order.payments[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_PAYMENT_TYPE</strong>: $.message.order.payments[*].type must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_PAYMENT_TYPES</strong>: every element of $.message.order.payments[*].type must be in [&quot;PRE-ORDER&quot;, &quot;ON-FULFILLMENT&quot;, &quot;PART-PAYMENT&quot;]</p>
+</li>
+<li><p><strong>condition REQUIRED_PAYMENT_PARAMS</strong>: $.message.order.payments[*].params.amount must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>INIT_ORDER_BILLING</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_BILLING_NAME</strong>: $.message.order.billing.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_ADDRESS</strong>: $.message.order.billing.address must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_STATE_NAME</strong>: $.message.order.billing.state.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_CITY_NAME</strong>: $.message.order.billing.city.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_ORGANIZATION_DESCRIPTOR_NAME</strong>: $.message.order.billing.organization.descriptor.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_ORGANIZATION_ADDRESS</strong>: $.message.order.billing.organization.address must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_EMAIL</strong>: $.message.order.billing.email must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_PHONE</strong>: $.message.order.billing.phone must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_TAX_ID</strong>: $.message.order.billing.tax_id must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>INIT_ORDER_FULFILLMENTS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_FULFILLMENT_ID</strong>: $.message.order.fulfillments[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_NAME</strong>: $.message.order.fulfillments[*].customer.person.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_AGE</strong>: $.message.order.fulfillments[*].customer.person.age must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_DOB</strong>: $.message.order.fulfillments[*].customer.person.dob must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_GENDER</strong>: $.message.order.fulfillments[*].customer.person.gender must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_CONTACT</strong>: $.message.order.fulfillments[*].customer.contact.phone must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_CONTACT_EMAIL</strong>: $.message.order.fulfillments[*].customer.contact.email must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>INIT_ORDER_TAGS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_BAP_TERMS</strong>: $.message.order.tags[?(@.descriptor.code==&#39;BAP_TERMS&#39;)].list[*].descriptor.code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BUYER_FINDER_FEES</strong>: $.message.order.tags[?(@.descriptor.code==&#39;BUYER_FINDER_FEES&#39;)].list[*].descriptor.code must be present in the payload</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>on_init</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>ON_INIT_CONTEXT</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>REQUIRED_CONTEXT_FIELDS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_CONTEXT_DOMAIN</strong>: $.context.domain must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_COUNTRY</strong>: $.context.location.country.code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CITY</strong>: $.context.location.city.code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TRANSACTION_ID</strong>: $.context.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_MESSAGE_ID</strong>: $.context.message_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_ACTION</strong>: $.context.action must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TIMESTAMP</strong>: $.context.timestamp must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_VERSION</strong>: $.context.version must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_URI</strong>: $.context.bap_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_ID</strong>: $.context.bap_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_URI</strong>: $.context.bpp_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_ID</strong>: $.context.bpp_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TTL</strong>: $.context.ttl must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>CONTEXT_ENUM_VALIDATION</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition VALID_CONTEXT_COUNTRY_CODE</strong>: at least one element of $.context.location.country.code must be in [&quot;IND&quot;]</p>
+</li>
+<li><p><strong>condition VALID_CONTEXT_DOMAIN</strong>: at least one element of $.context.domain must be in [&quot;ONDC:TRV13&quot;]</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_INIT_ORDER_PROVIDER</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><strong>condition REQUIRED_PROVIDER_ID</strong>: $.message.order.provider.id must be present in the payload</li>
+</ul>
+</li>
+<li><p><strong>ON_INIT_ITEMS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>REQUIRED_ITEMS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_MESSAGE_ITEMS_ID</strong>: $.message.order.items[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ITEMS_ADD_ONS</strong>: $.message.order.items[<em>].add_ons[</em>].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEMS_LOCATIONS</strong>: $.message.order.items[<em>].location_ids[</em>] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEMS_QUANTITY</strong>: $.message.order.items[*].quantity.selected.count must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEMS_ADDONS</strong>: $.message.order.items[<em>].add_ons[</em>].id must be present in the payload</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_INIT_ORDER_QUOTE</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_QUOTE_PRICE</strong>: $.message.order.quote.price.value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_QUOTE_CURRENCY</strong>: $.message.order.quote.price.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_QUOTE_BREAKUP</strong>: $.message.order.quote.breakup[*].price.value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_QUOTE_BREAKUP_PRICE_CURRENCY</strong>: $.message.order.quote.breakup[*].price.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_QUOTE_BREAKUP_TITLE</strong>: $.message.order.quote.breakup[*].title must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_QUOTE_TTL</strong>: $.message.order.quote.ttl must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_INIT_PAYMENTS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_PAYMENT_ID</strong>: $.message.order.payments[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_PAYMENT_TYPE</strong>: $.message.order.payments[*].type must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_PAYMENT_TYPES</strong>: every element of $.message.order.payments[*].type must be in [&quot;PRE-ORDER&quot;, &quot;ON-FULFILLMENT&quot;, &quot;PART-PAYMENT&quot;]</p>
+</li>
+<li><p><strong>condition REQUIRED_PAYMENT_STATUS</strong>: $.message.order.payments[*].status must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_PAYMENT_STATUS</strong>: every element of $.message.order.payments[*].status must be in [&quot;PAID&quot;, &quot;NOT-PAID&quot;]</p>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_INIT_ORDER_BILLING</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_BILLING_NAME</strong>: $.message.order.billing.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_ADDRESS</strong>: $.message.order.billing.address must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_STATE_NAME</strong>: $.message.order.billing.state.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_CITY_NAME</strong>: $.message.order.billing.city.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_ORGANIZATION_DESCRIPTOR_NAME</strong>: $.message.order.billing.organization.descriptor.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_ORGANIZATION_ADDRESS</strong>: $.message.order.billing.organization.address must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_EMAIL</strong>: $.message.order.billing.email must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_PHONE</strong>: $.message.order.billing.phone must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_TAX_ID</strong>: $.message.order.billing.tax_id must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_INIT_ORDER_FULFILLMENTS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_FULFILLMENT_ID</strong>: $.message.order.fulfillments[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_NAME</strong>: $.message.order.fulfillments[*].customer.person.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_AGE</strong>: $.message.order.fulfillments[*].customer.person.age must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_DOB</strong>: $.message.order.fulfillments[*].customer.person.dob must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_GENDER</strong>: $.message.order.fulfillments[*].customer.person.gender must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_CONTACT</strong>: $.message.order.fulfillments[*].customer.contact.phone must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_CONTACT_EMAIL</strong>: $.message.order.fulfillments[*].customer.contact.email must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_INIT_TAGS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_TAG_GROUPS</strong>: $.message.order.tags[*].descriptor.code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_TAG_VALUES</strong>: $.message.order.tags[<em>].list[</em>].descriptor.code must be present in the payload</p>
+</li>
+<li><p><strong>condition PAYMENT_TAG_GROUP</strong>: every element of $.message.order.tags[*].descriptor.code must be in [&quot;BAP_TERMS&quot;, &quot;BUYER_FINDER_FEES&quot;, &quot;BPP_TERMS&quot;]</p>
+</li>
+<li><p><strong>condition REQUIRED_PAYMENT_TAG_BPP_TERMS</strong>: every element of $.message.order.tags[?(@.descriptor.code==&#39;BPP_TERMS&#39;)].list[*].descriptor.code must be in [&quot;MAX_LIABILITY&quot;, &quot;MAX_LIABILITY_CAP&quot;, &quot;MANDATORY_ARBITRATION&quot;, &quot;COURT_JURISDICTION&quot;, &quot;DELAY_INTEREST&quot;, &quot;TAX_NUMBER&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition REQUIRED_PAYMENT_TAG_BPP_TERMS</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.tags[?(@.descriptor.code==&#39;BPP_TERMS&#39;)].list[*].descriptor.code must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>confirm</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>CONFIRM_CONTEXT</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>REQUIRED_CONTEXT_FIELDS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_CONTEXT_DOMAIN</strong>: $.context.domain must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_COUNTRY</strong>: $.context.location.country.code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_CITY</strong>: $.context.location.city.code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TRANSACTION_ID</strong>: $.context.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_MESSAGE_ID</strong>: $.context.message_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_ACTION</strong>: $.context.action must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TIMESTAMP</strong>: $.context.timestamp must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_VERSION</strong>: $.context.version must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_URI</strong>: $.context.bap_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BAP_ID</strong>: $.context.bap_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_URI</strong>: $.context.bpp_uri must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_BPP_ID</strong>: $.context.bpp_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TTL</strong>: $.context.ttl must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>CONTEXT_ENUM_VALIDATION</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition VALID_CONTEXT_COUNTRY_CODE</strong>: at least one element of $.context.location.country.code must be in [&quot;IND&quot;]</p>
+</li>
+<li><p><strong>condition VALID_CONTEXT_DOMAIN</strong>: at least one element of $.context.domain must be in [&quot;ONDC:TRV13&quot;]</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>CONFIRM_ORDER_PROVIDER</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><strong>condition REQUIRED_PROVIDER_ID</strong>: $.message.order.provider.id must be present in the payload</li>
+</ul>
+</li>
+<li><p><strong>CONFIRM_ITEMS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>REQUIRED_ITEMS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_MESSAGE_ITEMS_ID</strong>: $.message.order.items[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ITEMS_ADD_ONS</strong>: $.message.order.items[<em>].add_ons[</em>].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEMS_LOCATIONS</strong>: $.message.order.items[<em>].location_ids[</em>] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEMS_QUANTITY</strong>: $.message.order.items[*].quantity.selected.count must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEMS_ADDONS</strong>: $.message.order.items[<em>].add_ons[</em>].id must be present in the payload</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>CONFIRM_ORDER_QUOTE</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_QUOTE_PRICE</strong>: $.message.order.quote.price.value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_QUOTE_CURRENCY</strong>: $.message.order.quote.price.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_QUOTE_BREAKUP</strong>: $.message.order.quote.breakup[*].price.value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_QUOTE_BREAKUP_PRICE_CURRENCY</strong>: $.message.order.quote.breakup[*].price.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_QUOTE_BREAKUP_TITLE</strong>: $.message.order.quote.breakup[*].title must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_QUOTE_TTL</strong>: $.message.order.quote.ttl must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>CONFIRM_PAYMENTS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_PAYMENT_ID</strong>: $.message.order.payments[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_PAYMENT_TYPE</strong>: $.message.order.payments[*].type must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_PAYMENT_TYPES</strong>: every element of $.message.order.payments[*].type must be in [&quot;PRE-ORDER&quot;, &quot;ON-FULFILLMENT&quot;, &quot;PART-PAYMENT&quot;]</p>
+</li>
+<li><p><strong>condition REQUIRED_PAYMENT_STATUS</strong>: $.message.order.payments[*].status must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_PAYMENT_STATUS</strong>: every element of $.message.order.payments[*].status must be in [&quot;PAID&quot;, &quot;NOT-PAID&quot;]</p>
+</li>
+</ul>
+</li>
+<li><p><strong>CONFIRM_ORDER_BILLING</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_BILLING_NAME</strong>: $.message.order.billing.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_ADDRESS</strong>: $.message.order.billing.address must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_STATE_NAME</strong>: $.message.order.billing.state.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_CITY_NAME</strong>: $.message.order.billing.city.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_ORGANIZATION_DESCRIPTOR_NAME</strong>: $.message.order.billing.organization.descriptor.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_ORGANIZATION_ADDRESS</strong>: $.message.order.billing.organization.address must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_EMAIL</strong>: $.message.order.billing.email must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_PHONE</strong>: $.message.order.billing.phone must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_TAX_ID</strong>: $.message.order.billing.tax_id must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>CONFIRM_ORDER_FULFILLMENTS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_FULFILLMENT_ID</strong>: $.message.order.fulfillments[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_NAME</strong>: $.message.order.fulfillments[*].customer.person.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_AGE</strong>: $.message.order.fulfillments[*].customer.person.age must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_DOB</strong>: $.message.order.fulfillments[*].customer.person.dob must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_GENDER</strong>: $.message.order.fulfillments[*].customer.person.gender must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_CONTACT</strong>: $.message.order.fulfillments[*].customer.contact.phone must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_CONTACT_EMAIL</strong>: $.message.order.fulfillments[*].customer.contact.email must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>CONFIRM_TAGS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_TAG_GROUPS</strong>: $.message.order.tags[*].descriptor.code must be present in the payload</p>
+</li>
+<li><p><strong>condition PAYMENT_TAG_GROUP</strong>: every element of $.message.order.tags[*].descriptor.code must be in [&quot;BAP_TERMS&quot;, &quot;BUYER_FINDER_FEES&quot;, &quot;BPP_TERMS&quot;]</p>
+</li>
+<li><p><strong>condition REQUIRED_PAYMENT_TAG_BPP_TERMS</strong>: every element of $.message.order.tags[?(@.descriptor.code==&#39;BPP_TERMS&#39;)].list[*].descriptor.code must be in [&quot;MAX_LIABILITY&quot;, &quot;MAX_LIABILITY_CAP&quot;, &quot;MANDATORY_ARBITRATION&quot;, &quot;COURT_JURISDICTION&quot;, &quot;DELAY_INTEREST&quot;, &quot;TAX_NUMBER&quot;]</p>
+<blockquote>
+<p>Note: <strong>Condition REQUIRED_PAYMENT_TAG_BPP_TERMS</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.tags[?(@.descriptor.code==&#39;BPP_TERMS&#39;)].list[*].descriptor.code must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><strong>CONFIRM_TIMESTAMPS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_CREATED_AT</strong>: all elements of $.message.order.created_at must follow every regex in [&quot;^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z$&quot;]</p>
+</li>
+<li><p><strong>condition REQUIRED_UPDATED_AT</strong>: all elements of $.message.order.updated_at must follow every regex in [&quot;^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z$&quot;]</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>on_confirm</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>ON_CONFIRM_CONTEXT</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>REQUIRED_ON_CONFIRM_CONTEXT</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_CONTEXT_DOMAIN</strong>: $.context.domain must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_ACTION</strong>: $.context.action must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_VERSION</strong>: $.context.version must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_MESSAGE_ID</strong>: $.context.message_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TRANSACTION_ID</strong>: $.context.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REGEX_CONTEXT_TIMESTAMP</strong>: all elements of $.context.timestamp must follow every regex in [&quot;^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z$&quot;]</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_CONFIRM_ORDER</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>REQUIRED_ON_CONFIRM_ORDER</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_ORDER_ID</strong>: $.message.order.id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ORDER_STATUS</strong>: $.message.order.status must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_ORDER_STATUS</strong>: every element of $.message.order.status must be in [&quot;SOFT-CANCEL&quot;, &quot;CONFIRM-CANCEL&quot;, &quot;SOFT-UPDATE&quot;, &quot;CONFIRM-UPDATE&quot;, &quot;ACTIVE&quot;, &quot;COMPLETE&quot;, &quot;CANCELLED&quot;]</p>
+</li>
+<li><p><strong>condition REQUIRED_ON_CONFIRM_UPDATED_AT</strong>: $.message.order.updated_at must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>VALID_ENUM_ON_CONFIRM_ORDER</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition VALID_ENUM_ORDER_STATUS</strong>: at least one element of $.message.order.status must be in [&quot;SOFT_CANCEL&quot;, &quot;CONFIRM_CANCEL&quot;, &quot;ACTIVE&quot;, &quot;COMPLETE&quot;, &quot;CANCELLED&quot;]</p>
+</li>
+<li><p><strong>condition REGEX_ON_CONFIRM_UPDATED_AT</strong>: all elements of $.message.order.updated_at must follow every regex in [&quot;^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z$&quot;]</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_CONFIRM_ITEMS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>REQUIRED_ITEMS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_MESSAGE_ITEMS_ID</strong>: $.message.order.items[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ITEMS_ADD_ONS</strong>: $.message.order.items[<em>].add_ons[</em>].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEMS_LOCATIONS</strong>: $.message.order.items[<em>].location_ids[</em>] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEMS_QUANTITY</strong>: $.message.order.items[*].quantity.selected.count must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEMS_ADDONS</strong>: $.message.order.items[<em>].add_ons[</em>].id must be present in the payload</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_CONFIRM_ORDER_FULFILLMENTS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_FULFILLMENT_ID</strong>: $.message.order.fulfillments[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_NAME</strong>: $.message.order.fulfillments[*].customer.person.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_AGE</strong>: $.message.order.fulfillments[*].customer.person.age must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_DOB</strong>: $.message.order.fulfillments[*].customer.person.dob must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_GENDER</strong>: $.message.order.fulfillments[*].customer.person.gender must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_CONTACT</strong>: $.message.order.fulfillments[*].customer.contact.phone must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_CONTACT_EMAIL</strong>: $.message.order.fulfillments[*].customer.contact.email must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_CONFIRM_PROVIDER</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><strong>condition REQUIRED_PROVIDER_ID</strong>: $.message.order.provider.id must be present in the payload</li>
+</ul>
+</li>
+<li><p><strong>ON_CONFIRM_ORDER_QUOTE</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_QUOTE_PRICE</strong>: $.message.order.quote.price.value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_QUOTE_CURRENCY</strong>: $.message.order.quote.price.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_QUOTE_BREAKUP</strong>: $.message.order.quote.breakup[*].price.value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_QUOTE_BREAKUP_PRICE_CURRENCY</strong>: $.message.order.quote.breakup[*].price.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_QUOTE_BREAKUP_TITLE</strong>: $.message.order.quote.breakup[*].title must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_QUOTE_TTL</strong>: $.message.order.quote.ttl must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_CONFIRM_PAYMENTS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_PAYMENT_ID</strong>: $.message.order.payments[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_PAYMENT_TYPE</strong>: $.message.order.payments[*].type must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_PAYMENT_TYPES</strong>: every element of $.message.order.payments[*].type must be in [&quot;PRE-ORDER&quot;, &quot;ON-FULFILLMENT&quot;, &quot;PART-PAYMENT&quot;]</p>
+</li>
+<li><p><strong>condition REQUIRED_PAYMENT_STATUS</strong>: $.message.order.payments[*].status must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_PAYMENT_STATUS</strong>: every element of $.message.order.payments[*].status must be in [&quot;PAID&quot;, &quot;NOT-PAID&quot;]</p>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_CONFIRM_ORDER_BILLING</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_BILLING_NAME</strong>: $.message.order.billing.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_ADDRESS</strong>: $.message.order.billing.address must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_STATE_NAME</strong>: $.message.order.billing.state.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_CITY_NAME</strong>: $.message.order.billing.city.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_ORGANIZATION_DESCRIPTOR_NAME</strong>: $.message.order.billing.organization.descriptor.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_ORGANIZATION_ADDRESS</strong>: $.message.order.billing.organization.address must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_EMAIL</strong>: $.message.order.billing.email must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_PHONE</strong>: $.message.order.billing.phone must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_TAX_ID</strong>: $.message.order.billing.tax_id must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_CONFIRM_TIMESTAMPS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><strong>condition REQUIRED_UPDATED_AT</strong>: all elements of $.message.order.updated_at must follow every regex in [&quot;^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z$&quot;]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>status</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>STATUS_CONTEXT</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>REQUIRED_ON_CONFIRM_CONTEXT</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_CONTEXT_DOMAIN</strong>: $.context.domain must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_ACTION</strong>: $.context.action must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_VERSION</strong>: $.context.version must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_MESSAGE_ID</strong>: $.context.message_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TRANSACTION_ID</strong>: $.context.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REGEX_CONTEXT_TIMESTAMP</strong>: all elements of $.context.timestamp must follow every regex in [&quot;^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z$&quot;]</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>condition REQUIRED_ORDER_ID</strong>: $.message.order_id must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>on_status</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>ON_STATUS_CONTEXT</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>REQUIRED_ON_STATUS_CONTEXT</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_CONTEXT_DOMAIN</strong>: $.context.domain must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_ACTION</strong>: $.context.action must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_VERSION</strong>: $.context.version must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_MESSAGE_ID</strong>: $.context.message_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TRANSACTION_ID</strong>: $.context.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REGEX_CONTEXT_TIMESTAMP</strong>: all elements of $.context.timestamp must follow every regex in [&quot;^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z$&quot;]</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_STATUS_ORDER</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>REQUIRED_ON_STATUS_ORDER</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_ORDER_ID</strong>: $.message.order.id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ORDER_STATUS</strong>: $.message.order.status must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ORDER_UPDATED_AT</strong>: $.message.order.updated_at must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>VALID_ENUM_ON_STATUS_ORDER</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition VALID_ENUM_ORDER_STATUS</strong>: at least one element of $.message.order.status must be in [&quot;SOFT_CANCEL&quot;, &quot;CONFIRM_CANCEL&quot;, &quot;ACTIVE&quot;, &quot;COMPLETE&quot;, &quot;CANCELLED&quot;]</p>
+</li>
+<li><p><strong>condition REGEX_ON_STATUS_UPDATED_AT</strong>: all elements of $.message.order.updated_at must follow every regex in [&quot;^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z$&quot;]</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_STATUS_ITEMS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>REQUIRED_ITEMS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_MESSAGE_ITEMS_ID</strong>: $.message.order.items[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ITEMS_ADD_ONS</strong>: $.message.order.items[<em>].add_ons[</em>].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEMS_LOCATIONS</strong>: $.message.order.items[<em>].location_ids[</em>] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEMS_QUANTITY</strong>: $.message.order.items[*].quantity.selected.count must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEMS_ADDONS</strong>: $.message.order.items[<em>].add_ons[</em>].id must be present in the payload</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_STATUS_ORDER_FULFILLMENTS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_FULFILLMENT_ID</strong>: $.message.order.fulfillments[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_NAME</strong>: $.message.order.fulfillments[*].customer.person.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_AGE</strong>: $.message.order.fulfillments[*].customer.person.age must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_DOB</strong>: $.message.order.fulfillments[*].customer.person.dob must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_GENDER</strong>: $.message.order.fulfillments[*].customer.person.gender must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_CONTACT</strong>: $.message.order.fulfillments[*].customer.contact.phone must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_CONTACT_EMAIL</strong>: $.message.order.fulfillments[*].customer.contact.email must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_STATUS_PROVIDER</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><strong>condition REQUIRED_PROVIDER_ID</strong>: $.message.order.provider.id must be present in the payload</li>
+</ul>
+</li>
+<li><p><strong>ON_STATUS_ORDER_QUOTE</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_QUOTE_PRICE</strong>: $.message.order.quote.price.value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_QUOTE_CURRENCY</strong>: $.message.order.quote.price.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_QUOTE_BREAKUP</strong>: $.message.order.quote.breakup[*].price.value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_QUOTE_BREAKUP_PRICE_CURRENCY</strong>: $.message.order.quote.breakup[*].price.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_QUOTE_BREAKUP_TITLE</strong>: $.message.order.quote.breakup[*].title must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_QUOTE_TTL</strong>: $.message.order.quote.ttl must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_STATUS_PAYMENTS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_PAYMENT_ID</strong>: $.message.order.payments[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_PAYMENT_TYPE</strong>: $.message.order.payments[*].type must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_PAYMENT_TYPES</strong>: every element of $.message.order.payments[*].type must be in [&quot;PRE-ORDER&quot;, &quot;ON-FULFILLMENT&quot;, &quot;PART-PAYMENT&quot;]</p>
+</li>
+<li><p><strong>condition REQUIRED_PAYMENT_STATUS</strong>: $.message.order.payments[*].status must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_PAYMENT_STATUS</strong>: every element of $.message.order.payments[*].status must be in [&quot;PAID&quot;, &quot;NOT-PAID&quot;]</p>
+</li>
+<li><p><strong>VALID_ENUM_PAYMENTS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition VALID_ENUM_PAYMENTS_STATUS</strong>: at least one element of $.message.order.payments[*].status must be in [&quot;PAID&quot;, &quot;NOT-PAID&quot;]</p>
+</li>
+<li><p><strong>condition VALID_ENUM_PAYMENTS_TYPE</strong>: at least one element of $.message.order.payments[*].type must be in [&quot;PRE-ORDER&quot;, &quot;PART-PAYMENT&quot;, &quot;ON-FULFILLMENT&quot;, &quot;POST-FULFILLMENT&quot;]</p>
+</li>
+</ul>
+</li>
+<li><p><strong>REQUIRED_PAYMENTS_LINKED_TAGS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><strong>condition REQUIRED_LINKED_PAYMENT_TAG</strong>: at least one element of $.message.order.payments[<em>].tags[</em>].descriptor.code must be in [&quot;LINKED-PAYMENTS&quot;, &quot;ADV-DEPOSIT&quot;, &quot;FINAL-PAYMENT&quot;]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_STATUS_ORDER_BILLING</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_BILLING_NAME</strong>: $.message.order.billing.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_ADDRESS</strong>: $.message.order.billing.address must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_STATE_NAME</strong>: $.message.order.billing.state.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_CITY_NAME</strong>: $.message.order.billing.city.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_ORGANIZATION_DESCRIPTOR_NAME</strong>: $.message.order.billing.organization.descriptor.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_ORGANIZATION_ADDRESS</strong>: $.message.order.billing.organization.address must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_EMAIL</strong>: $.message.order.billing.email must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_PHONE</strong>: $.message.order.billing.phone must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_TAX_ID</strong>: $.message.order.billing.tax_id must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_STATUS_TAGS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>REQUIRED_TAGS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_TAGS_DESCRIPTOR_CODE</strong>: $.message.order.tags[*].descriptor.code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_TAGS_LIST_DESCRIPTOR_CODE</strong>: $.message.order.tags[<em>].list[</em>].descriptor.code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_TAGS_LIST_VALUE</strong>: $.message.order.tags[<em>].list[</em>].value must be present in the payload</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_STATUS_DOCUMENTS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>REQUIRED_DOCUMENTS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_DOCUMENTS_DESCRIPTOR_CODE</strong>: $.message.order.documents[*].descriptor.code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_DOCUMENTS_URL</strong>: $.message.order.documents[*].url must be present in the payload</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>update</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>UPDATE_CONTEXT</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>REQUIRED_ON_STATUS_CONTEXT</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_CONTEXT_DOMAIN</strong>: $.context.domain must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_ACTION</strong>: $.context.action must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_VERSION</strong>: $.context.version must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_MESSAGE_ID</strong>: $.context.message_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TRANSACTION_ID</strong>: $.context.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REGEX_CONTEXT_TIMESTAMP</strong>: all elements of $.context.timestamp must follow every regex in [&quot;^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z$&quot;]</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>UPDATE_MESSAGE_1</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_UPDATE_TARGET</strong>: $.message.update_target must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_UPDATE_TARGET</strong>: at least one element of $.message.update_target must be in [&quot;fulfillment&quot;, &quot;payment&quot;, &quot;billing&quot;, &quot;items&quot;]</p>
+</li>
+<li><p><strong>condition REQUIRED_ORDER_ID</strong>: $.message.order.id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_FULFILLMENT_ID</strong>: $.message.order.fulfillments[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_TAG_DESCRIPTOR_CODE</strong>: $.message.order.fulfillments[<em>].tags[</em>].descriptor.code must be present in the payload</p>
+<blockquote>
+<p>Note: <strong>Condition REQUIRED_TAG_DESCRIPTOR_CODE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.fulfillments[<em>].tags[</em>].descriptor.code must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition VALID_TAG_DESCRIPTOR_CODE</strong>: at least one element of $.message.order.fulfillments[<em>].tags[</em>].descriptor.code must be in [&quot;UPDATE_REQUEST&quot;, &quot;MODIFY&quot;]</p>
+</li>
+<li><p><strong>condition REQUIRED_TAG_LIST_DESCRIPTOR_CODE</strong>: $.message.order.fulfillments[<em>].tags[</em>].list[*].descriptor.code must be present in the payload</p>
+<blockquote>
+<p>Note: <strong>Condition REQUIRED_TAG_LIST_DESCRIPTOR_CODE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.fulfillments[<em>].tags[</em>].list[*].descriptor.code must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>condition REQUIRED_TAG_LIST_VALUE</strong>: $.message.order.fulfillments[<em>].tags[</em>].list[*].value must be present in the payload</p>
+<blockquote>
+<p>Note: <strong>Condition REQUIRED_TAG_LIST_VALUE</strong> can be skipped if the following conditions are met:</p>
+<ul>
+<li><strong>condition B</strong>: $.message.order.fulfillments[<em>].tags[</em>].list[*].value must <strong>not</strong> be present in the payload</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>on_update</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>ON_UPDATE_CONTEXT</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>REQUIRED_ON_UPDATE_CONTEXT</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_CONTEXT_DOMAIN</strong>: $.context.domain must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_ACTION</strong>: $.context.action must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_VERSION</strong>: $.context.version must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_MESSAGE_ID</strong>: $.context.message_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TRANSACTION_ID</strong>: $.context.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REGEX_CONTEXT_TIMESTAMP</strong>: all elements of $.context.timestamp must follow every regex in [&quot;^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z$&quot;]</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_UPDATE_ORDER</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>REQUIRED_ON_UPDATE_ORDER</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_ORDER_ID</strong>: $.message.order.id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ORDER_STATUS</strong>: $.message.order.status must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ORDER_UPDATED_AT</strong>: $.message.order.updated_at must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>VALID_ENUM_ON_UPDATE_ORDER</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition VALID_ENUM_ORDER_STATUS</strong>: at least one element of $.message.order.status must be in [&quot;SOFT-CANCEL&quot;, &quot;CONFIRM-CANCEL&quot;, &quot;SOFT-UPDATE&quot;, &quot;CONFIRM-UPDATE&quot;, &quot;ACTIVE&quot;, &quot;COMPLETE&quot;, &quot;CANCELLED&quot;]</p>
+</li>
+<li><p><strong>condition REGEX_ON_UPDATE_UPDATED_AT</strong>: all elements of $.message.order.updated_at must follow every regex in [&quot;^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z$&quot;]</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_UPDATE_ITEMS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>REQUIRED_ITEMS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_MESSAGE_ITEMS_ID</strong>: $.message.order.items[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_MESSAGE_ITEMS_ADD_ONS</strong>: $.message.order.items[<em>].add_ons[</em>].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEMS_LOCATIONS</strong>: $.message.order.items[<em>].location_ids[</em>] must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEMS_QUANTITY</strong>: $.message.order.items[*].quantity.selected.count must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ITEMS_ADDONS</strong>: $.message.order.items[<em>].add_ons[</em>].id must be present in the payload</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_UPDATE_ORDER_FULFILLMENTS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_FULFILLMENT_ID</strong>: $.message.order.fulfillments[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_NAME</strong>: $.message.order.fulfillments[*].customer.person.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_AGE</strong>: $.message.order.fulfillments[*].customer.person.age must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_DOB</strong>: $.message.order.fulfillments[*].customer.person.dob must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_GENDER</strong>: $.message.order.fulfillments[*].customer.person.gender must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_CONTACT</strong>: $.message.order.fulfillments[*].customer.contact.phone must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CUSTOMER_CONTACT_EMAIL</strong>: $.message.order.fulfillments[*].customer.contact.email must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_UPDATE_PROVIDER</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><strong>condition REQUIRED_PROVIDER_ID</strong>: $.message.order.provider.id must be present in the payload</li>
+</ul>
+</li>
+<li><p><strong>ON_UPDATE_ORDER_QUOTE</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_QUOTE_PRICE</strong>: $.message.order.quote.price.value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_QUOTE_CURRENCY</strong>: $.message.order.quote.price.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_QUOTE_BREAKUP</strong>: $.message.order.quote.breakup[*].price.value must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_QUOTE_BREAKUP_PRICE_CURRENCY</strong>: $.message.order.quote.breakup[*].price.currency must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_QUOTE_BREAKUP_TITLE</strong>: $.message.order.quote.breakup[*].title must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_QUOTE_TTL</strong>: $.message.order.quote.ttl must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_UPDATE_PAYMENTS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_PAYMENT_ID</strong>: $.message.order.payments[*].id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_PAYMENT_TYPE</strong>: $.message.order.payments[*].type must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_PAYMENT_TYPES</strong>: every element of $.message.order.payments[*].type must be in [&quot;PRE-ORDER&quot;, &quot;ON-FULFILLMENT&quot;, &quot;PART-PAYMENT&quot;]</p>
+</li>
+<li><p><strong>condition REQUIRED_PAYMENT_STATUS</strong>: $.message.order.payments[*].status must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_PAYMENT_STATUS</strong>: every element of $.message.order.payments[*].status must be in [&quot;PAID&quot;, &quot;NOT-PAID&quot;]</p>
+</li>
+<li><p><strong>VALID_ENUM_PAYMENTS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition VALID_ENUM_PAYMENTS_STATUS</strong>: at least one element of $.message.order.payments[*].status must be in [&quot;PAID&quot;, &quot;NOT-PAID&quot;]</p>
+</li>
+<li><p><strong>condition VALID_ENUM_PAYMENTS_TYPE</strong>: at least one element of $.message.order.payments[*].type must be in [&quot;PRE-ORDER&quot;, &quot;PART-PAYMENT&quot;, &quot;ON-FULFILLMENT&quot;, &quot;POST-FULFILLMENT&quot;]</p>
+</li>
+</ul>
+</li>
+<li><p><strong>REQUIRED_PAYMENTS_LINKED_TAGS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><strong>condition REQUIRED_LINKED_PAYMENT_TAG</strong>: at least one element of $.message.order.payments[<em>].tags[</em>].descriptor.code must be in [&quot;LINKED-PAYMENTS&quot;, &quot;ADV-DEPOSIT&quot;, &quot;FINAL-PAYMENT&quot;]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_UPDATE_ORDER_BILLING</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_BILLING_NAME</strong>: $.message.order.billing.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_ADDRESS</strong>: $.message.order.billing.address must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_STATE_NAME</strong>: $.message.order.billing.state.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_CITY_NAME</strong>: $.message.order.billing.city.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_ORGANIZATION_DESCRIPTOR_NAME</strong>: $.message.order.billing.organization.descriptor.name must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_ORGANIZATION_ADDRESS</strong>: $.message.order.billing.organization.address must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_EMAIL</strong>: $.message.order.billing.email must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_PHONE</strong>: $.message.order.billing.phone must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_BILLING_TAX_ID</strong>: $.message.order.billing.tax_id must be present in the payload</p>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_UPDATE_TAGS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>REQUIRED_TAGS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_TAGS_DESCRIPTOR_CODE</strong>: $.message.order.tags[*].descriptor.code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_TAGS_LIST_DESCRIPTOR_CODE</strong>: $.message.order.tags[<em>].list[</em>].descriptor.code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_TAGS_LIST_VALUE</strong>: $.message.order.tags[<em>].list[</em>].value must be present in the payload</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_UPDATE_DOCUMENTS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>REQUIRED_DOCUMENTS</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_DOCUMENTS_DESCRIPTOR_CODE</strong>: $.message.order.documents[*].descriptor.code must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_DOCUMENTS_URL</strong>: $.message.order.documents[*].url must be present in the payload</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>cancel</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>CANCEL_CONTEXT</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>REQUIRED_ON_UPDATE_CONTEXT</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_CONTEXT_DOMAIN</strong>: $.context.domain must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_ACTION</strong>: $.context.action must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_VERSION</strong>: $.context.version must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_MESSAGE_ID</strong>: $.context.message_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TRANSACTION_ID</strong>: $.context.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REGEX_CONTEXT_TIMESTAMP</strong>: all elements of $.context.timestamp must follow every regex in [&quot;^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z$&quot;]</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>CANCEL_MESSAGE_1</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_CANCELLATION_ID</strong>: $.message.cancellation_reason_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CANCELLATION_SHORT_DESC</strong>: $.message.descriptor.short_desc must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CANCELLATION_LONG_DESC</strong>: $.message.descriptor.long_desc must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ORDER_ID</strong>: $.message.order_id must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_CANCELLATION_REASON_ID</strong>: at least one element of $.message.cancellation_reason_id must be in [&quot;000&quot;, &quot;001&quot;, &quot;002&quot;, &quot;003&quot;, &quot;004&quot;, &quot;005&quot;, &quot;011&quot;, &quot;012&quot;, &quot;013&quot;, &quot;014&quot;]</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>on_cancel</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>ON_CANCEL_CONTEXT</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>REQUIRED_ON_UPDATE_CONTEXT</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_CONTEXT_DOMAIN</strong>: $.context.domain must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_ACTION</strong>: $.context.action must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_VERSION</strong>: $.context.version must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_MESSAGE_ID</strong>: $.context.message_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CONTEXT_TRANSACTION_ID</strong>: $.context.transaction_id must be present in the payload</p>
+</li>
+<li><p><strong>condition REGEX_CONTEXT_TIMESTAMP</strong>: all elements of $.context.timestamp must follow every regex in [&quot;^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z$&quot;]</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>ON_CANCEL_MESSAGE_1</strong> : All the following sub conditions must pass as per the api requirement</p>
+<ul>
+<li><p><strong>condition REQUIRED_ORDER_ID</strong>: $.message.order.id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_ORDER_STATUS</strong>: $.message.order.status must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_ORDER_STATUS</strong>: at least one element of $.message.order.status must be in [&quot;CANCELLED&quot;]</p>
+</li>
+<li><p><strong>condition REQUIRED_CANCELLED_BY</strong>: $.message.order.cancellation.cancelled_by must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_CANCELLATION_REASON_ID</strong>: $.message.order.cancellation.reason.id must be present in the payload</p>
+</li>
+<li><p><strong>condition REQUIRED_UPDATED_AT</strong>: $.message.order.updated_at must be present in the payload</p>
+</li>
+<li><p><strong>condition VALID_CANCELLATION_REASON_ID</strong>: at least one element of $.message.order.cancellation.reason.id must be in [&quot;000&quot;, &quot;001&quot;, &quot;002&quot;, &quot;003&quot;, &quot;004&quot;, &quot;005&quot;, &quot;011&quot;, &quot;012&quot;, &quot;013&quot;, &quot;014&quot;]</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Select all list items that have a nested <ul> (collapsible items)
+        const collapsibleItems = document.querySelectorAll('li > ul');
+
+        collapsibleItems.forEach(function(nestedList) {
+            const parentLi = nestedList.parentElement;
+            parentLi.classList.add('collapsible', 'collapsed');
+
+            // Add click event listener to the <p> inside the list item
+            const clickableArea = parentLi.querySelector('p');
+            clickableArea.addEventListener('click', function(e) {
+                // Prevent click events on links inside the <p>
+                if (e.target.tagName !== 'A') {
+                    parentLi.classList.toggle('collapsed');
+                }
+            });
+        });
+    });
+</script>
+</html>

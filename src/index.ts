@@ -79,5 +79,7 @@ const moveRelevantFiles = async () => {
 };
 
 (async () => {
+	console.log("Starting API Service Layer Creation...");
 	await createApiServiceLayer();
+	console.log("API Service Layer Creation Completed.");
 })();

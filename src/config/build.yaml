@@ -7441,6 +7441,11 @@ x-validations:
         _RETURN_:
           - _NAME_: CONTEXT_REQUIRED
             _RETURN_:
+              - _NAME_: REQUIRED_CONTEXT_LOCATION_COUNTRY_CODE_SAVED
+                attr: $.context.location.country.code
+                savedCode: $._EXTERNAL.country_code
+                _DESCRIPTION_: Country code in context and saved value should be same as given in search
+                _RETURN_: attr all in savedCode
               - _NAME_: REQUIRED_CONTEXT_LOCATION_COUNTRY_CODE
                 attr: $.context.location.country.code
                 _RETURN_: attr are present
@@ -9442,4 +9447,5 @@ x-validations:
             _RETURN_: attr any in enumList
 
   _SESSION_DATA_:
-    trans: {}
+    search:
+      country_code: "$.context.location.country.code"

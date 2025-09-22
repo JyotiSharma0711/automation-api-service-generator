@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from "fs";
+import { readFileSync } from "fs";
 import fse from "fs-extra";
 import { ConfigCompiler } from "ondc-code-generator";
 import path from "path";
